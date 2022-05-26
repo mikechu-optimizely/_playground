@@ -349,7 +349,7 @@
       "rolloutId": "rollout-1213-19968041012",
       "variables": [
         {
-          "defaultValue": "alphabetical1",
+          "defaultValue": "alphabetical2",
           "type": "string",
           "id": "790",
           "key": "sort_method"
