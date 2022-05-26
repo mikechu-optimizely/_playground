@@ -23,14 +23,20 @@ const previousDatafile = await readDataFileObjectFromDisk(PREVIOUS_DATAFILE_PATH
 const newDatafile = await readDataFileObjectFromDisk(NEW_DATAFILE_PATH);
 
 const patches = jsonPatch.compare(previousDatafile, newDatafile);
-//console.dir(patches, {depth: null});
+console.dir(patches, {depth: null});
 
-const allTargetPaths = patches.map(patch => patch.path.match(/(\/experiments\/\d)|(\/featureFlags\/\d)|(\/audiences\/\d)/gm));
-// console.dir(allTargetPaths);
+const allTargetPaths = patches.map(patch => patch.path.match(/.*(\/experiments\/\d)|(\/featureFlags\/\d)|(\/audiences\/\d)/gm)[0]);
+//console.dir(allTargetPaths, {depth: null});
 
 const uniqueTargetPathsSet = new Set(allTargetPaths);
 const uniqueTargetPaths = [...uniqueTargetPathsSet];
-console.dir(uniqueTargetPaths);
+console.dir(uniqueTargetPaths, {depth: null});
 
-const uniqueTargetObjects = uniqueTargetPaths.map(path => jsonPatch.getValueByPointer(newDatafile, path));
-console.dir(uniqueTargetObjects);
+const uniqueTargetObjects = uniqueTargetPaths.map(path =>  {
+    let foundObject = jsonPatch.getValueByPointer(newDatafile, path);
+    if (typeof foundObject === "undefined") {
+        foundObject = jsonPatch.getValueByPointer(previousDatafile, path);
+    }
+    return foundObject;
+});
+console.dir(uniqueTargetObjects, {depth: null});
