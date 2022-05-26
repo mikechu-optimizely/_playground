@@ -1,0 +1,29 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "npm-watch start"
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "."
+      ],
+      "extensions": "js,json",
+      "quiet": true
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fast-json-patch": "^3.1.1",
+    "fs": "0.0.1-security"
+  },
+  "devDependencies": {
+    "npm-watch": "^0.11.0"
+  }
+}
