@@ -12,7 +12,7 @@
             {
               "variables": [],
               "id": "21561",
-              "key": "green",
+              "key": "blue",
               "featureEnabled": true
             }
           ],
@@ -35,7 +35,7 @@
             {
               "variables": [],
               "id": "21262",
-              "key": "off",
+              "key": "on",
               "featureEnabled": false
             }
           ],
@@ -400,20 +400,6 @@
       ],
       "id": "216",
       "key": "first_flag"
-    },
-    {
-      "experimentIds": [],
-      "rolloutId": "rollout-217-19968041012",
-      "variables": [
-        {
-          "defaultValue": "false",
-          "type": "boolean",
-          "id": "181",
-          "key": "second_flag_bool"
-        }
-      ],
-      "id": "217",
-      "key": "second_flag"
     }
   ],
   "experiments": [
@@ -421,10 +407,13 @@
       "status": "Running",
       "audienceConditions": [
         "or",
-        "19960273892"
+        "19960273892",
+        "or",
+        "19960273893"
       ],
       "audienceIds": [
-        "19960273892"
+        "19960273892",
+        "19960273893"
       ],
       "variations": [
         {
@@ -478,7 +467,7 @@
   "audiences": [
     {
       "id": "19960273892",
-      "conditions": "[\"and\", [\"or\", [\"or\", {\"match\": \"exact\", \"name\": \"attr1\", \"type\": \"custom_attribute\", \"value\": \"on1\"}]]]",
+      "conditions": "[\"and\", [\"or\", [\"or\", {\"match\": \"exact\", \"name\": \"attr1\", \"type\": \"custom_attribute\", \"value\": \"off1\"}]]]",
       "name": "attr1"
     },
     {
